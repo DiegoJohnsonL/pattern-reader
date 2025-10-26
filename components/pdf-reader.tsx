@@ -22,6 +22,8 @@ interface Counter {
   value: number;
   x: number;
   y: number;
+  width: number;
+  height: number;
 }
 
 interface PdfReaderProps {
@@ -43,7 +45,7 @@ export function PdfReader({ file, onClose }: PdfReaderProps) {
 
   useState(() => {
     const updateWidth = () => {
-      const width = Math.min(window.innerWidth * 0.9, 800);
+      const width = Math.min(window.innerWidth * 0.8, 800);
       setPageWidth(width);
     };
     updateWidth();
@@ -97,8 +99,10 @@ export function PdfReader({ file, onClose }: PdfReaderProps) {
     const newCounter: Counter = {
       id: `counter-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
       value: 0,
-      x: Math.max(50, window.innerWidth / 2 - 100 + counters.length * 20),
-      y: Math.max(100, window.innerHeight / 2 - 50 + counters.length * 20),
+      x: Math.max(50, window.innerWidth / 2 - 96 + counters.length * 20),
+      y: Math.max(100, window.innerHeight / 2 - 80 + counters.length * 20),
+      width: 192,
+      height: 160,
     };
     setCounters([...counters, newCounter]);
   };
@@ -247,15 +251,6 @@ export function PdfReader({ file, onClose }: PdfReaderProps) {
               </div>
             ))}
           </Document>
-
-          {/* Page Counter */}
-          {numPages > 0 && (
-            <div className="sticky bottom-4 bg-card/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-border">
-              <p className="text-sm text-muted-foreground">
-                {numPages} {numPages === 1 ? "page" : "pages"}
-              </p>
-            </div>
-          )}
         </div>
       </div>
 

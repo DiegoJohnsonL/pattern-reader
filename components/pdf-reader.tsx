@@ -94,7 +94,6 @@ export function PdfReader({ file, onClose }: PdfReaderProps) {
     };
   });
 
-  // Counter management functions
   const addCounter = () => {
     const newCounter: Counter = {
       id: `counter-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,

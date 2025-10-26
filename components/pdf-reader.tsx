@@ -3,9 +3,7 @@
 import { useState } from "react"
 import { Document, Page, pdfjs } from "react-pdf"
 import { X, ZoomIn, ZoomOut, Maximize2, Minimize2, Download } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import "react-pdf/dist/esm/Page/AnnotationLayer.css"
-import "react-pdf/dist/esm/Page/TextLayer.css"
+import { Button } from "@/components/ui/button";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`
 

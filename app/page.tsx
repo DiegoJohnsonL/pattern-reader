@@ -5,7 +5,11 @@ import type React from "react";
 import { useState } from "react";
 import { Upload } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PdfReader } from "@/components/pdf-reader";
+import dynamic from "next/dynamic";
+const PdfReader = dynamic(
+  () => import("@/components/pdf-reader").then((mod) => mod.PdfReader),
+  { ssr: false }
+);
 
 export default function Home() {
   const [pdfFile, setPdfFile] = useState<File | null>(null);
